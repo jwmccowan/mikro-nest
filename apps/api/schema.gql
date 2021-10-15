@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateAccountInput {
+  familyName: String
+  givenName: String
+  handle: String
+  userId: ID!
+}
+
+input CreateUserInput {
+  email: String!
+}
+
+type Edge {
+  cursor: String!
+  node: UserNode!
+}
+
+type Mutation {
+  createAccount(input: CreateAccountInput!): UserAccountNode
+  createUser(input: CreateUserInput!): UserNode
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type Query {
+  getUser(id: String!): UserNode
+  getUsers: UserConnection!
+}
+
+type UserAccountNode {
+  familyName: String
+  givenName: String
+  handle: String
+  id: ID!
+  user: UserNode!
+}
+
+type UserConnection {
+  edges: [Edge!]!
+  pageInfo: PageInfo!
+}
+
+type UserNode {
+  account: UserAccountNode
+  email: String!
+  id: ID!
+}
